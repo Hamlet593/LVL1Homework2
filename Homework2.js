@@ -87,7 +87,7 @@ function paddingAndRepeating(arr, padAmount, repeat){
   }
   let unshiftItems = arr.slice(0, padAmount);
   let pushingItems = arr.slice(arr.length - padAmount, arr.length);
-  for(let i = 1; i <= repeat; i++){
+  for(let i = 0; i < repeat; i++){
     arr.unshift(unshiftItems);
     arr.push(pushingItems);
   }
