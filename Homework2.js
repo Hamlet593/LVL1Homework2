@@ -75,11 +75,11 @@ console.log(getSecondMaximum([23,  -98, 0, -456, 12, 8]))
 console.log(getSecondMaximum([-60, 2, 43, -18, 5, -19, 36, 7, 56 ]))
 
 
-// Given an array of numbers, padding amount and repeat count.Pad the array in the following way:
-// the padding amount specifies how many elements should be taken from the array edges, the repeat amount specifies how many times the pad should be repeated.
-// Also, you should check that  padding amount <= length of array.
+/*Given an array of numbers, padding amount and repeat count.Pad the array in the following way:
+the padding amount specifies how many elements should be taken from the array edges, the repeat amount specifies how many times the pad should be repeated.
+Also, you should check that  padding amount <= length of array.
 
-// Solution
+Solution 1*/
 
 function paddingAndRepeating(arr, padAmount, repeat){
   if(arr.length < padAmount){
@@ -97,6 +97,22 @@ console.log(paddingAndRepeating([1, 2, 3, 4], 1, 3))
 console.log(paddingAndRepeating([1, 2, 3, 4], 2, 1))
 console.log(paddingAndRepeating([1], 1, 3))
 console.log(paddingAndRepeating([1], 2, 3))
+
+/*Solution 2*/
+
+function padding(arr, padAmount, repeat){
+  if(padAmount > arr.length){
+    return 'Invalid padding amount';
+  }
+  for(let i = 0; i < padAmount; i++){
+    for(let j = 0; j < repeat; j++){
+      arr.unshift(arr[(padAmount - 1)]) + arr.push(arr[arr.length - padAmount]);
+    }
+  }
+  return arr;
+}
+console.log(padding([1, 2, 3, 4], 3, 3))
+
 
 // Write a function which receives an array and a number as arguments and returns a new array from the elements of the given array which are larger than the given number.
 
